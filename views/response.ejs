@@ -1,0 +1,18 @@
+<%layout("/Layouts/boilerplate") %>
+<div class="flex justify-center items-center mt-20">
+    <div class="bg-white p-8 rounded-lg shadow-md text-center max-w-lg w-full">
+        <!-- Success Message -->
+        <h1 class="text-3xl font-bold text-green-500 mb-4">Congratulations!</h1>
+        <p class="text-gray-700 text-lg mb-6">
+            <% if(data){%>
+                <%=data.message%><%=data.time%>
+           <% }else{%>
+            Your Message has been sent to All registerd users.
+            <% } %> 
+            </p>
+        <!-- Button to go back to send message page -->
+        <a href="/message" class="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition-colors">
+            Go Back to Send Message
+        </a>
+    </div>
+</div>

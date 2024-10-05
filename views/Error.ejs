@@ -1,0 +1,11 @@
+<%layout("/Layouts/boilerplate") %>
+<section class="bg-white mt-3 ">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div class="mx-auto max-w-screen-sm text-center">
+            <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-7xl text-primary-600 dark:text-primary-500"><%=error.statuscode%></h1>
+            <p class="mb-4 text-2xl tracking-tight text-gray-500 font-bold md:text-3xl "><%=error.message%>!</p>
+            <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Sorry, we can't find that page. You'll find lots to explore on the home page. </p>
+            <a href="/auth/signin" class="inline-flex text-white hover:text-blue-500 bg-blue-600 hover:bg-primary-800 focus:ring-4 focus:outline focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  my-4">SignIn</a>
+        </div>   
+    </div>
+</section>

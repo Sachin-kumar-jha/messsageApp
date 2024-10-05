@@ -1,0 +1,29 @@
+
+<%layout("/Layouts/boilerplate") %>
+<div class="flex min-h-full flex-col justify-center flex-wrap px-6 py-12 lg:px-8 items-center">
+    <h1 class="text-3xl text-black">Create an Account</h1>
+ <form action="/auth/" method="post">
+ <label for="username">username</label>
+ <input class=" block w-full px-3 py-2   bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="text" name="username" placeholder="username"/>
+  
+  <label for="name">Name</label>
+  <input class="block px-3 py-2 w-full   bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="text" name="name" placeholder="what's your name"/>
+ 
+
+  <label for="email">Email</label>
+  <input class=" block px-3  py-2 bg-white w-full  border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="email" name="email" placeholder="email@gmail.com"/>
+  
+
+  <label for="password">password</label>
+  <input class=" block w-full   px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="password" name="password" placeholder="password"/>
+  
+  <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+  <input class="w-full  px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="tel" id="phone" name="mobileNumber" max={10}
+         placeholder="Enter your phone number" 
+         class=" block px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+         <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 mt-4 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit">
+            Register
+    </button>
+ </form>
+ 
+</div>
