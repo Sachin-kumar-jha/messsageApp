@@ -11,10 +11,6 @@ const message = async (req, res, next) =>{
         const message  = req.body.message; 
        // Extract message from the request body
 
-        // Check if message is undefined or empty
-        if (!message) {
-            return res.status(400).send('Message content is missing.');
-        }
 
         // Map through users and extract the first mobile number
         const numbers = users.map(user => user.mobileNumber[0]); // Ensure mobileNumber is an array

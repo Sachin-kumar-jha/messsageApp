@@ -22,7 +22,7 @@ app.use(express.static(path.join((__dirname,"public"))));
 app.use(cookieParser());
 
 
-app.use("/auth",authRoute);
+app.use("/",authRoute);
 app.use("/users",userRoute);
 app.use("/message",messageRoute);
 
