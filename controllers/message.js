@@ -33,7 +33,7 @@ const message = async (req, res, next) =>{
                 return client.messages
                     .create({
                         body: message, // Ensure the message is directly passed here
-                        from: 'whatsapp:+14155238886', // Twilio WhatsApp number
+                        from: `whatsapp:+${process.env.TWILIO_WHATSAPP_NUMBER}`, // Twilio WhatsApp number
                         to: `whatsapp:+91${num}`      // Recipient's WhatsApp number
                     })
                     .then()
