@@ -29,7 +29,6 @@ app.use("/message",messageRoute);
 
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT,()=>{
     ConnectDB();
-    console.log("server is listening http://localhost:3000/auth/");
 })
