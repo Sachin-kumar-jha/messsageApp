@@ -4,9 +4,8 @@ const bcrypt=require('bcrypt');
 const {ApiError}=require('../utils/error.js');
 
 const registerUser=async(req,res,next)=>{
+  try{
    let {username,name,mobileNumber,email,password}=req.body;
-   const user=User.find({username:username});
-   if(user) return res.render("Error.ejs",{error:new ApiError(401,"User is already exists! please click the message icon to register!")});
    const hash = bcrypt.hashSync(password,10);
  const newUser=new User({
    username,
@@ -15,23 +14,21 @@ const registerUser=async(req,res,next)=>{
    mobileNumber,
    password:hash,
  });
- try{
-    const savedUser= await newUser.save();
+  const savedUser= await newUser.save();
     //res.status(200).json(savedUser);
  }catch (error) {
-    next(error);
+  return res.render("Error.ejs",{error:new ApiError(401,"User  already exist! please click message icon to register")});
  }
  next();
 }
 
  const signIn= async (req,res,next)=>{
-    let {email}=req.body.email;
+    let {email}=req.body;
     try {
         const user= await User.findOne({email});
         if(!user) return res.render("Error.ejs",{error:new ApiError(401,"User not found!")});
         let hash= user.password;
         let isPasswordCorrect=bcrypt.compareSync(req.body.password, hash);
-        
         if(!isPasswordCorrect) return res.render("Error.ejs",{error:new ApiError(401,"Somethin went wrong!")});
 
 const token=jwt.sign({id:user._id,name:user.name},process.env.JWT);
