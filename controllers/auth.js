@@ -5,7 +5,7 @@ const {ApiError}=require('../utils/error.js');
 
 const registerUser=async(req,res,next)=>{
    let {username,name,mobileNumber,email,password}=req.body;
-   const user=User.find({username:username,email:email,mobileNumber:mobileNumber});
+   const user=User.find({username:username});
    if(user) return res.render("Error.ejs",{error:new ApiError(401,"User is already exists! please click the message icon to register!")});
    const hash = bcrypt.hashSync(password,10);
  const newUser=new User({
@@ -25,7 +25,7 @@ const registerUser=async(req,res,next)=>{
 }
 
  const signIn= async (req,res,next)=>{
-    let {email}=req.body;
+    let {email}=req.body.email;
     try {
         const user= await User.findOne({email});
         if(!user) return res.render("Error.ejs",{error:new ApiError(401,"User not found!")});
